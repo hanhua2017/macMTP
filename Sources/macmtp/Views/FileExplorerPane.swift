@@ -4,7 +4,7 @@ import ImageIO
 import PDFKit
 
 
-struct DroppedFile: Codable {
+struct DroppedFile: Codable, Sendable {
     let path: String
     let isLocal: Bool
     let name: String
@@ -26,6 +26,14 @@ final class ThreadSafeArray<T>: @unchecked Sendable {
         let copy = items
         lock.unlock()
         return copy
+    }
+}
+
+private final class SendableItemProvider: @unchecked Sendable {
+    let value: NSItemProvider
+
+    init(_ value: NSItemProvider) {
+        self.value = value
     }
 }
 
@@ -1598,15 +1606,17 @@ struct FileExplorerPane: View {
         }
 
         group.notify(queue: .main) {
-            var files = collectedFiles.all
-            if files.isEmpty, let payload = InAppDragState.shared.recentPayload() {
-                let fallbackFiles = Self.droppedFiles(fromInternalPayload: payload)
-                files = fallbackFiles
-                ErrorLogger.debug("FileExplorerPane.handleDrop using inAppDragStateFallback items=\(Self.describeDroppedFiles(fallbackFiles))")
-            }
-            ErrorLogger.debug("FileExplorerPane.handleDrop resolved files=\(files.count) items=\(Self.describeDroppedFiles(files)) isLocal=\(isLocal) destination=\(dropDestination)")
-            if !files.isEmpty {
-                onFilesDropped?(files, dropDestination)
+            Task { @MainActor in
+                var files = collectedFiles.all
+                if files.isEmpty, let payload = InAppDragState.shared.recentPayload() {
+                    let fallbackFiles = Self.droppedFiles(fromInternalPayload: payload)
+                    files = fallbackFiles
+                    ErrorLogger.debug("FileExplorerPane.handleDrop using inAppDragStateFallback items=\(Self.describeDroppedFiles(fallbackFiles))")
+                }
+                ErrorLogger.debug("FileExplorerPane.handleDrop resolved files=\(files.count) items=\(Self.describeDroppedFiles(files)) isLocal=\(isLocal) destination=\(dropDestination)")
+                if !files.isEmpty {
+                    onFilesDropped?(files, dropDestination)
+                }
             }
         }
 
@@ -1617,7 +1627,7 @@ struct FileExplorerPane: View {
     // plain text retains the full selection, while fileURL represents only its first item.
     nonisolated static func loadDroppedFiles(
         from provider: NSItemProvider,
-        completion: @escaping ([DroppedFile]) -> Void
+        completion: @escaping @Sendable ([DroppedFile]) -> Void
     ) {
         let types = [
             internalFileItemsType,
@@ -1626,15 +1636,16 @@ struct FileExplorerPane: View {
             UTType.fileURL.identifier
         ].filter { provider.hasItemConformingToTypeIdentifier($0) }
         let suggestedName = provider.suggestedName ?? ""
+        let sendableProvider = SendableItemProvider(provider)
 
-        func load(at index: Int) {
+        @Sendable func load(at index: Int) {
             guard index < types.count else {
                 completion([])
                 return
             }
             let type = types[index]
             if type == UTType.fileURL.identifier {
-                _ = provider.loadObject(ofClass: URL.self) { url, _ in
+                _ = sendableProvider.value.loadObject(ofClass: URL.self) { url, _ in
                     let files = ThreadSafeArray<DroppedFile>()
                     if let url, url.isFileURL {
                         appendLocalDroppedFile(url: url, suggestedName: suggestedName, to: files)
@@ -1644,7 +1655,7 @@ struct FileExplorerPane: View {
                 return
             }
 
-            _ = provider.loadDataRepresentation(forTypeIdentifier: type) { data, _ in
+            _ = sendableProvider.value.loadDataRepresentation(forTypeIdentifier: type) { data, _ in
                 let files = ThreadSafeArray<DroppedFile>()
                 if let data {
                     if type == finderFilenamesType {
