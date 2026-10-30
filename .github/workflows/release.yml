@@ -14,7 +14,7 @@ jobs:
           - arch: arm64
             runner: macos-14
           - arch: x86_64
-            runner: macos-13
+            runner: macos-14
     runs-on: ${{ matrix.runner }}
     permissions:
       contents: read
@@ -22,6 +22,11 @@ jobs:
     steps:
     - name: Checkout MacMTP
       uses: actions/checkout@v4
+
+    - name: Select Swift 6 toolchain
+      uses: maxim-lobanov/setup-xcode@v1
+      with:
+        version: '16.2'
 
     - name: Install build tools
       run: brew install pkg-config
