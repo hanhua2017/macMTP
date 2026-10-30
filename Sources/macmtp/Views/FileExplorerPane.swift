@@ -621,7 +621,9 @@ struct FileExplorerPane: View {
             }
             .coordinateSpace(name: "explorerSpace")
             .onPreferenceChange(ItemFramePreferenceKey.self) { frames in
-                itemFrames = frames
+                Task { @MainActor in
+                    itemFrames = frames
+                }
             }
             .gesture(
                 DragGesture(minimumDistance: 5)
@@ -1780,6 +1782,7 @@ struct FileExplorerPane: View {
         coordinator.removeMonitor()
     }
 
+    @MainActor
     class Coordinator: NSObject {
         var onKeyPress: (String) -> Void
         var isActive: Bool = false
@@ -1790,7 +1793,7 @@ struct FileExplorerPane: View {
         }
 
         func installMonitor() {
-            monitor = NSEvent.addLocalMonitorForEvents(matching: .keyDown) { [weak self] event in
+            monitor = NSEvent.addLocalMonitorForEvents(matching: .keyDown) { @MainActor [weak self] event in
                 guard let self = self, self.isActive,
                       !ExplorerKeyboardRouting.isEditingText(event.window?.firstResponder ?? NSApp.keyWindow?.firstResponder) else { return event }
                 let modifiers = event.modifierFlags.intersection(.deviceIndependentFlagsMask)
@@ -1809,9 +1812,6 @@ struct FileExplorerPane: View {
             }
         }
 
-        deinit {
-            removeMonitor()
-        }
     }
 }
 
