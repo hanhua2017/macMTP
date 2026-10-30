@@ -131,8 +131,8 @@ scripts/            # Runtime dependency build, app build and packaging
 
 ## Documentation and contributing
 
-- [Documentation index](docs/README.md)
-- [Product requirements](docs/product/PRD.md) · [Technical architecture](docs/architecture/TECHNICAL_ARCHITECTURE.md)
+- [Documentation index](docs/README.en.md)
+- [Product requirements](docs/product/PRD.en.md) · [Technical architecture](docs/architecture/TECHNICAL_ARCHITECTURE.en.md)
 - [Contributing](CONTRIBUTING.md) · [Code of conduct](CODE_OF_CONDUCT.md)
 - [Security policy](SECURITY.md) · [Governance](GOVERNANCE.md) · [Maintainers](MAINTAINERS.md)
 

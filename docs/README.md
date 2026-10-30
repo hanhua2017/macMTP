@@ -1,5 +1,7 @@
 # macMTP 项目文档
 
+**English documentation: [README.en.md](README.en.md)**
+
 ## 阅读入口
 
 | 分类 | 文档 | 用途 |
