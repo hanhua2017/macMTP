@@ -1,0 +1,25 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+PROJECT_ROOT="$(git rev-parse --show-toplevel)"
+cd "$PROJECT_ROOT"
+
+echo "[pre-push] 运行 Swift 测试..."
+swift test
+
+echo "[pre-push] 检查工作区差异..."
+git diff --check
+
+while read -r local_ref local_sha remote_ref remote_sha; do
+    [[ -z "${remote_ref:-}" ]] && continue
+    if [[ "$remote_ref" == refs/tags/v* ]]; then
+        echo "[pre-push] 检测到 Release 标签 $remote_ref，运行发布检查..."
+        python3 scripts/check-publication.py
+
+        arch="$(uname -m)"
+        echo "[pre-push] 构建 $arch Release 包..."
+        bash scripts/build.sh release --arch "$arch"
+    fi
+done
+
+echo "[pre-push] 检查通过。"
