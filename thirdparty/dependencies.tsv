@@ -1,0 +1,5 @@
+# source-directory	archive	url	sha256
+libusb-1.0.29	libusb-1.0.29.tar.bz2	https://github.com/libusb/libusb/releases/download/v1.0.29/libusb-1.0.29.tar.bz2	5977fc950f8d1395ccea9bd48c06b3f808fd3c2c961b44b0c2e6e29fc3a70a85
+libgpg-error-1.58	libgpg-error-1.58.tar.bz2	https://gnupg.org/ftp/gcrypt/libgpg-error/libgpg-error-1.58.tar.bz2	f943aea9a830a8bd938e5124b579efaece24a3225ff4c3d27611a80ce1260c27
+libgcrypt-1.11.2	libgcrypt-1.11.2.tar.bz2	https://gnupg.org/ftp/gcrypt/libgcrypt/libgcrypt-1.11.2.tar.bz2	6ba59dd192270e8c1d22ddb41a07d95dcdbc1f0fb02d03c4b54b235814330aac
+libmtp-1.1.23	libmtp-1.1.23.tar.gz	https://downloads.sourceforge.net/project/libmtp/libmtp/1.1.23/libmtp-1.1.23.tar.gz	74a2b6e8cb4a0304e95b995496ea3ac644c29371649b892b856e22f12a0bdeed

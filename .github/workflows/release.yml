@@ -1,0 +1,92 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+jobs:
+  build:
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - arch: arm64
+            runner: macos-14
+          - arch: x86_64
+            runner: macos-13
+    runs-on: ${{ matrix.runner }}
+    permissions:
+      contents: read
+
+    steps:
+    - name: Checkout MacMTP
+      uses: actions/checkout@v4
+
+    - name: Install build tools
+      run: brew install pkg-config
+
+    - name: Build isolated LibMTP runtime
+      run: bash scripts/build-runtime.sh "${{ matrix.arch }}"
+
+    - name: Build and package architecture
+      run: bash scripts/release.sh "${{ github.ref_name }}" --arch "${{ matrix.arch }}"
+
+    - name: Upload build artifacts
+      uses: actions/upload-artifact@v4
+      with:
+        name: release-${{ matrix.arch }}
+        path: |
+          release/*.dmg
+          release/*.zip
+          release/*.sha256
+        if-no-files-found: error
+
+  release:
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+    - name: Download build artifacts
+      uses: actions/download-artifact@v4
+      with:
+        pattern: release-*
+        merge-multiple: true
+        path: release
+
+    - name: Generate combined update metadata
+      shell: bash
+      run: |
+        set -euo pipefail
+        version="${GITHUB_REF_NAME#v}"
+        {
+          echo "version: $version"
+          echo "files:"
+          for file in release/*.zip release/*.dmg; do
+            [ -f "$file" ] || continue
+            name="$(basename "$file")"
+            echo "  - url: $name"
+            echo "    sha256: $(sha256sum "$file" | awk '{print $1}')"
+            echo "    size: $(stat -c%s "$file")"
+          done
+          preferred="macMTP-$version-mac-arm64.zip"
+          [ -f "release/$preferred" ] || preferred="$(basename "$(find release -name '*.zip' | sort | head -1)")"
+          echo "path: $preferred"
+          echo "releaseDate: '$(date -u +"%Y-%m-%dT%H:%M:%S.000Z")'"
+        } > release/latest-mac.yml
+
+    - name: Release
+      uses: softprops/action-gh-release@v2
+      with:
+        files: |
+          release/*.dmg
+          release/*.zip
+          release/*.sha256
+          release/latest-mac.yml
+        generate_release_notes: true
+        draft: false
+        prerelease: false
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

@@ -1,0 +1,4 @@
+module CLibMTPBridge {
+    header "include/libmtp_bridge.h"
+    export *
+}

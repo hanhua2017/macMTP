@@ -1,0 +1,8 @@
+{
+  "command": "MACMTP_LIBMTP_ROOT=../libmtp-1.1.23 bash scripts/build.sh release --arch arm64",
+  "exit": 1,
+  "stdout": "========================================\n  macMTP Build\n  Mode: release\n  Target: arm64\n========================================\n",
+  "stderr": "ERROR: /path/to/libmtp-1.1.23/src/.libs/libmtp.9.dylib requires macOS 26.0, above the supported macOS 14.0.\nRebuild dependencies with MACOSX_DEPLOYMENT_TARGET=14.0 before creating a release bundle.\n",
+  "expectedRejection": true,
+  "appPreserved": true
+}

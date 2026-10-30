@@ -1,0 +1,18 @@
+{
+  "date": "2026-10-29",
+  "macOS": "26.6.2",
+  "architecture": "arm64",
+  "version": "1.0.6",
+  "build": "5",
+  "hashes": {
+    "Sources/macmtp/Views/FileExplorerPane.swift": "e60c5d196ee9cf3071c13ddfb4144675a496b3658f8a206a4e380c55d87ef93e",
+    "Sources/macmtp/Services/FileTransferService.swift": "a5cd17dd0b4bd7444b3f5d8d0892a80bcac215becde5b0cec35df33d504e01e8",
+    "macMTP.app/Contents/MacOS/macMTP": "bc1d2f990d0c367f2063276db7f1b07ef7668e10a7763b97956363e30bf027e3",
+    "release/macMTP-1.0.6-fixes-arm64.dmg": "0a0507d55cf463b66d075aaae6c17b1c9a81d89b31b8cd3d95979981b24723b1",
+    "docs/test-reports/2026-10-29-fixes/MODIFIED_FILE.tar.gz": "7d625f473830d68a22ef74e0387a160122f0c32779767afc6f7ac4402720dbd0",
+    "docs/test-reports/2026-10-29-fixes/DIFF_FILE.patch": "8e13e85030f287fa2069af1a4326c2560faece298b8305984f8f33913de79e86",
+    "docs/test-reports/2026-10-29-fixes/ROLLBACK.sh": "dbb92fedc2bac3396f1b7fb3ed1a571fb986b119b34dd144feace77437e15b37"
+  },
+  "rollbackScope": "Source, tests, build scripts, resources and README changes only; app/runtime binaries and test reports are retained.",
+  "documentationSanitization": "Public document copies have generic paths; archive hashes were recomputed after sanitization. Application/DMG hashes remain historical binary hashes."
+}

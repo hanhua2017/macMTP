@@ -1,0 +1,186 @@
+{
+  "app": "/private/tmp/macmtp-eight-bugs-20261029/dmg-mount/macMTP.app",
+  "binarySHA256": "bc1d2f990d0c367f2063276db7f1b07ef7668e10a7763b97956363e30bf027e3",
+  "status": "PASS",
+  "commands": [
+    {
+      "command": [
+        "codesign",
+        "--verify",
+        "--deep",
+        "--strict",
+        "/private/tmp/macmtp-eight-bugs-20261029/dmg-mount/macMTP.app"
+      ],
+      "exit": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "plutil",
+        "-lint",
+        "/private/tmp/macmtp-eight-bugs-20261029/dmg-mount/macMTP.app/Contents/Info.plist",
+        "/private/tmp/macmtp-eight-bugs-20261029/dmg-mount/macMTP.app/Contents/Resources/en.lproj/Localizable.strings",
+        "/private/tmp/macmtp-eight-bugs-20261029/dmg-mount/macMTP.app/Contents/Resources/zh-Hans.lproj/Localizable.strings"
+      ],
+      "exit": 0,
+      "stdout": "/private/tmp/macmtp-eight-bugs-20261029/dmg-mount/macMTP.app/Contents/Info.plist: OK\n/private/tmp/macmtp-eight-bugs-20261029/dmg-mount/macMTP.app/Contents/Resources/en.lproj/Localizable.strings: OK\n/private/tmp/macmtp-eight-bugs-20261029/dmg-mount/macMTP.app/Contents/Resources/zh-Hans.lproj/Localizable.strings: OK\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "lipo",
+        "-archs",
+        "/private/tmp/macmtp-eight-bugs-20261029/dmg-mount/macMTP.app/Contents/MacOS/libgcrypt.20.dylib"
+      ],
+      "exit": 0,
+      "stdout": "arm64\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "xcrun",
+        "vtool",
+        "-show-build",
+        "/private/tmp/macmtp-eight-bugs-20261029/dmg-mount/macMTP.app/Contents/MacOS/libgcrypt.20.dylib"
+      ],
+      "exit": 0,
+      "stdout": "/private/tmp/macmtp-eight-bugs-20261029/dmg-mount/macMTP.app/Contents/MacOS/libgcrypt.20.dylib:\nLoad command 9\n      cmd LC_BUILD_VERSION\n  cmdsize 32\n platform MACOS\n    minos 14.0\n      sdk 26.5\n   ntools 1\n     tool LD\n  version 1267.0\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "otool",
+        "-L",
+        "/private/tmp/macmtp-eight-bugs-20261029/dmg-mount/macMTP.app/Contents/MacOS/libgcrypt.20.dylib"
+      ],
+      "exit": 0,
+      "stdout": "/private/tmp/macmtp-eight-bugs-20261029/dmg-mount/macMTP.app/Contents/MacOS/libgcrypt.20.dylib:\n\t@executable_path/libgcrypt.20.dylib (compatibility version 27.0.0, current version 27.0.0)\n\t@executable_path/libgpg-error.0.dylib (compatibility version 42.0.0, current version 42.1.0)\n\t/usr/lib/libSystem.B.dylib (compatibility version 1.0.0, current version 1356.0.0)\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "lipo",
+        "-archs",
+        "/private/tmp/macmtp-eight-bugs-20261029/dmg-mount/macMTP.app/Contents/MacOS/libgpg-error.0.dylib"
+      ],
+      "exit": 0,
+      "stdout": "arm64\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "xcrun",
+        "vtool",
+        "-show-build",
+        "/private/tmp/macmtp-eight-bugs-20261029/dmg-mount/macMTP.app/Contents/MacOS/libgpg-error.0.dylib"
+      ],
+      "exit": 0,
+      "stdout": "/private/tmp/macmtp-eight-bugs-20261029/dmg-mount/macMTP.app/Contents/MacOS/libgpg-error.0.dylib:\nLoad command 10\n      cmd LC_BUILD_VERSION\n  cmdsize 32\n platform MACOS\n    minos 14.0\n      sdk 26.5\n   ntools 1\n     tool LD\n  version 1267.0\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "otool",
+        "-L",
+        "/private/tmp/macmtp-eight-bugs-20261029/dmg-mount/macMTP.app/Contents/MacOS/libgpg-error.0.dylib"
+      ],
+      "exit": 0,
+      "stdout": "/private/tmp/macmtp-eight-bugs-20261029/dmg-mount/macMTP.app/Contents/MacOS/libgpg-error.0.dylib:\n\t@executable_path/libgpg-error.0.dylib (compatibility version 42.0.0, current version 42.1.0)\n\t/usr/lib/libSystem.B.dylib (compatibility version 1.0.0, current version 1356.0.0)\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "lipo",
+        "-archs",
+        "/private/tmp/macmtp-eight-bugs-20261029/dmg-mount/macMTP.app/Contents/MacOS/libmtp.9.dylib"
+      ],
+      "exit": 0,
+      "stdout": "arm64\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "xcrun",
+        "vtool",
+        "-show-build",
+        "/private/tmp/macmtp-eight-bugs-20261029/dmg-mount/macMTP.app/Contents/MacOS/libmtp.9.dylib"
+      ],
+      "exit": 0,
+      "stdout": "/private/tmp/macmtp-eight-bugs-20261029/dmg-mount/macMTP.app/Contents/MacOS/libmtp.9.dylib:\nLoad command 10\n      cmd LC_BUILD_VERSION\n  cmdsize 32\n platform MACOS\n    minos 14.0\n      sdk 26.5\n   ntools 1\n     tool LD\n  version 1267.0\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "otool",
+        "-L",
+        "/private/tmp/macmtp-eight-bugs-20261029/dmg-mount/macMTP.app/Contents/MacOS/libmtp.9.dylib"
+      ],
+      "exit": 0,
+      "stdout": "/private/tmp/macmtp-eight-bugs-20261029/dmg-mount/macMTP.app/Contents/MacOS/libmtp.9.dylib:\n\t@executable_path/libmtp.9.dylib (compatibility version 14.0.0, current version 14.0.0)\n\t/usr/lib/libiconv.2.dylib (compatibility version 7.0.0, current version 7.0.0)\n\t@executable_path/libusb.dylib (compatibility version 6.0.0, current version 6.0.0)\n\t/usr/lib/libobjc.A.dylib (compatibility version 1.0.0, current version 228.0.0)\n\t@executable_path/libgcrypt.20.dylib (compatibility version 27.0.0, current version 27.0.0)\n\t@executable_path/libgpg-error.0.dylib (compatibility version 42.0.0, current version 42.1.0)\n\t/usr/lib/libSystem.B.dylib (compatibility version 1.0.0, current version 1356.0.0)\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "lipo",
+        "-archs",
+        "/private/tmp/macmtp-eight-bugs-20261029/dmg-mount/macMTP.app/Contents/MacOS/libusb.dylib"
+      ],
+      "exit": 0,
+      "stdout": "arm64\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "xcrun",
+        "vtool",
+        "-show-build",
+        "/private/tmp/macmtp-eight-bugs-20261029/dmg-mount/macMTP.app/Contents/MacOS/libusb.dylib"
+      ],
+      "exit": 0,
+      "stdout": "/private/tmp/macmtp-eight-bugs-20261029/dmg-mount/macMTP.app/Contents/MacOS/libusb.dylib:\nLoad command 10\n      cmd LC_BUILD_VERSION\n  cmdsize 32\n platform MACOS\n    minos 14.0\n      sdk 26.5\n   ntools 1\n     tool LD\n  version 1267.0\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "otool",
+        "-L",
+        "/private/tmp/macmtp-eight-bugs-20261029/dmg-mount/macMTP.app/Contents/MacOS/libusb.dylib"
+      ],
+      "exit": 0,
+      "stdout": "/private/tmp/macmtp-eight-bugs-20261029/dmg-mount/macMTP.app/Contents/MacOS/libusb.dylib:\n\t@executable_path/libusb.dylib (compatibility version 6.0.0, current version 6.0.0)\n\t/usr/lib/libobjc.A.dylib (compatibility version 1.0.0, current version 228.0.0)\n\t/System/Library/Frameworks/IOKit.framework/Versions/A/IOKit (compatibility version 1.0.0, current version 275.0.0)\n\t/System/Library/Frameworks/CoreFoundation.framework/Versions/A/CoreFoundation (compatibility version 150.0.0, current version 5026.5.4)\n\t/System/Library/Frameworks/Security.framework/Versions/A/Security (compatibility version 1.0.0, current version 61901.120.67)\n\t/usr/lib/libSystem.B.dylib (compatibility version 1.0.0, current version 1356.0.0)\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "lipo",
+        "-archs",
+        "/private/tmp/macmtp-eight-bugs-20261029/dmg-mount/macMTP.app/Contents/MacOS/macMTP"
+      ],
+      "exit": 0,
+      "stdout": "arm64\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "xcrun",
+        "vtool",
+        "-show-build",
+        "/private/tmp/macmtp-eight-bugs-20261029/dmg-mount/macMTP.app/Contents/MacOS/macMTP"
+      ],
+      "exit": 0,
+      "stdout": "/private/tmp/macmtp-eight-bugs-20261029/dmg-mount/macMTP.app/Contents/MacOS/macMTP:\nLoad command 11\n      cmd LC_BUILD_VERSION\n  cmdsize 32\n platform MACOS\n    minos 14.0\n      sdk 26.5\n   ntools 1\n     tool LD\n  version 1267.0\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "otool",
+        "-L",
+        "/private/tmp/macmtp-eight-bugs-20261029/dmg-mount/macMTP.app/Contents/MacOS/macMTP"
+      ],
+      "exit": 0,
+      "stdout": "/private/tmp/macmtp-eight-bugs-20261029/dmg-mount/macMTP.app/Contents/MacOS/macMTP:\n\t/System/Library/Frameworks/CoreFoundation.framework/Versions/A/CoreFoundation (compatibility version 150.0.0, current version 5026.5.4)\n\t/System/Library/Frameworks/Security.framework/Versions/A/Security (compatibility version 1.0.0, current version 61901.120.67)\n\t/System/Library/Frameworks/IOKit.framework/Versions/A/IOKit (compatibility version 1.0.0, current version 275.0.0)\n\t@executable_path/libusb.dylib (compatibility version 6.0.0, current version 6.0.0)\n\t@executable_path/libmtp.9.dylib (compatibility version 14.0.0, current version 14.0.0)\n\t@executable_path/libgcrypt.20.dylib (compatibility version 27.0.0, current version 27.0.0)\n\t@executable_path/libgpg-error.0.dylib (compatibility version 42.0.0, current version 42.1.0)\n\t/usr/lib/libiconv.2.dylib (compatibility version 7.0.0, current version 7.0.0)\n\t/usr/lib/libSystem.B.dylib (compatibility version 1.0.0, current version 1356.0.0)\n\t/System/Library/Frameworks/AppKit.framework/Versions/C/AppKit (compatibility version 45.0.0, current version 2685.60.104)\n\t/System/Library/Frameworks/Combine.framework/Versions/A/Combine (compatibility version 1.0.0, current version 3023.0.0)\n\t/System/Library/Frameworks/CoreGraphics.framework/Versions/A/CoreGraphics (compatibility version 64.0.0, current version 1965.5.1)\n\t/System/Library/Frameworks/Foundation.framework/Versions/C/Foundation (compatibility version 300.0.0, current version 5026.5.4)\n\t/System/Library/Frameworks/ImageIO.framework/Versions/A/ImageIO (compatibility version 1.0.0, current version 1.0.0)\n\t/System/Library/Frameworks/PDFKit.framework/Versions/A/PDFKit (compatibility version 1.0.0, current version 1451.5.3)\n\t/System/Library/Frameworks/SwiftUI.framework/Versions/A/SwiftUI (compatibility version 1.0.0, current version 7.5.3)\n\t/System/Library/Frameworks/Symbols.framework/Versions/A/Symbols (compatibility version 1.0.0, current version 190.4.0)\n\t/System/Library/Frameworks/UserNotifications.framework/Versions/A/UserNotifications (compatibility version 1.0.0, current version 1.0.0)\n\t/usr/lib/libobjc.A.dylib (compatibility version 1.0.0, current version 228.0.0)\n\t/usr/lib/swift/libswiftCore.dylib (compatibility version 0.0.0, current version 0.0.0)\n\t/usr/lib/swift/libswiftCoreFoundation.dylib (compatibility version 1.0.0, current version 120.100.0)\n\t/usr/lib/swift/libswiftCoreImage.dylib (compatibility version 1.0.0, current version 2.2.0, weak)\n\t/usr/lib/swift/libswiftDarwin.dylib (compatibility version 1.0.0, current version 377.120.8, weak)\n\t/usr/lib/swift/libswiftDispatch.dylib (compatibility version 1.0.0, current version 1542.100.32)\n\t/usr/lib/swift/libswiftIOKit.dylib (compatibility version 1.0.0, current version 1.0.0, weak)\n\t/usr/lib/swift/libswiftMetal.dylib (compatibility version 1.0.0, current version 373.2.0, weak)\n\t/usr/lib/swift/libswiftOSLog.dylib (compatibility version 1.0.0, current version 10.0.0, weak)\n\t/usr/lib/swift/libswiftObjectiveC.dylib (compatibility version 1.0.0, current version 951.7.0, weak)\n\t/usr/lib/swift/libswiftQuartzCore.dylib (compatibility version 1.0.0, current version 5.0.0, weak)\n\t/usr/lib/swift/libswiftSpatial.dylib (compatibility version 1.0.0, current version 1.0.0, weak)\n\t/usr/lib/swift/libswiftUniformTypeIdentifiers.dylib (compatibility version 1.0.0, current version 877.5.1)\n\t/usr/lib/swift/libswiftXPC.dylib (compatibility version 1.0.0, current version 128.120.2, weak)\n\t/usr/lib/swift/libswift_Concurrency.dylib (compatibility version 0.0.0, current version 0.0.0)\n\t/usr/lib/swift/libswiftos.dylib (compatibility version 1.0.0, current version 1082.0.0)\n\t/usr/lib/swift/libswiftsimd.dylib (compatibility version 1.0.0, current version 23.0.0, weak)\n",
+      "stderr": ""
+    }
+  ]
+}

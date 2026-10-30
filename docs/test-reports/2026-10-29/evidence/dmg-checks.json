@@ -1,0 +1,84 @@
+[
+  {
+    "command": [
+      "vtool",
+      "-show-build",
+      "/Volumes/macMTP/macMTP.app/Contents/MacOS/libgcrypt.20.dylib"
+    ],
+    "exit": 0,
+    "stdout": "/Volumes/macMTP/macMTP.app/Contents/MacOS/libgcrypt.20.dylib:\nLoad command 9\n      cmd LC_BUILD_VERSION\n  cmdsize 32\n platform MACOS\n    minos 26.0\n      sdk 26.4\n   ntools 1\n     tool LD\n  version 1266.8\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "vtool",
+      "-show-build",
+      "/Volumes/macMTP/macMTP.app/Contents/MacOS/libgpg-error.0.dylib"
+    ],
+    "exit": 0,
+    "stdout": "/Volumes/macMTP/macMTP.app/Contents/MacOS/libgpg-error.0.dylib:\nLoad command 10\n      cmd LC_BUILD_VERSION\n  cmdsize 32\n platform MACOS\n    minos 26.0\n      sdk 26.4\n   ntools 1\n     tool LD\n  version 1266.8\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "vtool",
+      "-show-build",
+      "/Volumes/macMTP/macMTP.app/Contents/MacOS/libintl.8.dylib"
+    ],
+    "exit": 0,
+    "stdout": "/Volumes/macMTP/macMTP.app/Contents/MacOS/libintl.8.dylib:\nLoad command 10\n      cmd LC_BUILD_VERSION\n  cmdsize 32\n platform MACOS\n    minos 26.0\n      sdk 26.4\n   ntools 1\n     tool LD\n  version 1266.8\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "vtool",
+      "-show-build",
+      "/Volumes/macMTP/macMTP.app/Contents/MacOS/libmtp.9.dylib"
+    ],
+    "exit": 0,
+    "stdout": "/Volumes/macMTP/macMTP.app/Contents/MacOS/libmtp.9.dylib:\nLoad command 10\n      cmd LC_BUILD_VERSION\n  cmdsize 32\n platform MACOS\n    minos 26.0\n      sdk 26.5\n   ntools 1\n     tool LD\n  version 1267.0\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "vtool",
+      "-show-build",
+      "/Volumes/macMTP/macMTP.app/Contents/MacOS/libusb.dylib"
+    ],
+    "exit": 0,
+    "stdout": "/Volumes/macMTP/macMTP.app/Contents/MacOS/libusb.dylib:\nLoad command 10\n      cmd LC_BUILD_VERSION\n  cmdsize 32\n platform MACOS\n    minos 26.0\n      sdk 26.4\n   ntools 1\n     tool LD\n  version 1266.8\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "vtool",
+      "-show-build",
+      "/Volumes/macMTP/macMTP.app/Contents/MacOS/macMTP"
+    ],
+    "exit": 0,
+    "stdout": "/Volumes/macMTP/macMTP.app/Contents/MacOS/macMTP:\nLoad command 11\n      cmd LC_BUILD_VERSION\n  cmdsize 32\n platform MACOS\n    minos 14.0\n      sdk 26.5\n   ntools 1\n     tool LD\n  version 1267.0\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "codesign",
+      "--verify",
+      "--deep",
+      "--strict",
+      "/Volumes/macMTP/macMTP.app"
+    ],
+    "exit": 0,
+    "stdout": "",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "plutil",
+      "-p",
+      "/Volumes/macMTP/macMTP.app/Contents/Info.plist"
+    ],
+    "exit": 0,
+    "stdout": "{\n  \"CFBundleDevelopmentRegion\" => \"en\"\n  \"CFBundleExecutable\" => \"macMTP\"\n  \"CFBundleIconFile\" => \"AppIcon\"\n  \"CFBundleIdentifier\" => \"com.macmtp.app\"\n  \"CFBundleInfoDictionaryVersion\" => \"6.0\"\n  \"CFBundleLocalizations\" => [\n    0 => \"en\"\n    1 => \"zh-Hans\"\n  ]\n  \"CFBundleName\" => \"macMTP\"\n  \"CFBundlePackageType\" => \"APPL\"\n  \"CFBundleShortVersionString\" => \"1.0.6\"\n  \"CFBundleVersion\" => \"5\"\n  \"LSEnvironment\" => {\n    \"GODEBUG\" => \"asyncpreemptoff=1\"\n    \"GOTRACEBACK\" => \"none\"\n  }\n  \"LSMinimumSystemVersion\" => \"14.0\"\n  \"NSHighResolutionCapable\" => true\n  \"NSHumanReadableCopyright\" => \"© 2026 macMTP Contributors\"\n  \"NSPrincipalClass\" => \"NSApplication\"\n  \"NSSystemAdministrationUsageDescription\" => \"macMTP needs access to USB devices to communicate with your Android device.\"\n}\n",
+    "stderr": ""
+  }
+]

@@ -1,0 +1,74 @@
+[
+  {
+    "actual" : "completed=3; skipped=0; same\/different\/fresh SHA256 checked",
+    "cases" : "TC-CFL-02,TC-CFL-03,TC-CFL-04,TC-CFL-05",
+    "id" : "EX-DOWNLOAD-CONFLICT-overwrite",
+    "status" : "PASS"
+  },
+  {
+    "actual" : "completed=1; skipped=2; same\/different\/fresh SHA256 checked",
+    "cases" : "TC-CFL-02,TC-CFL-03,TC-CFL-04,TC-CFL-05",
+    "id" : "EX-DOWNLOAD-CONFLICT-skip",
+    "status" : "PASS"
+  },
+  {
+    "actual" : "completed=2; skipped=1; same\/different\/fresh SHA256 checked",
+    "cases" : "TC-CFL-02,TC-CFL-03,TC-CFL-04,TC-CFL-05",
+    "id" : "EX-DOWNLOAD-CONFLICT-different",
+    "status" : "PASS"
+  },
+  {
+    "actual" : "completed=2; skipped=1; same\/different\/fresh SHA256 checked",
+    "cases" : "TC-CFL-02,TC-CFL-03,TC-CFL-04,TC-CFL-05",
+    "id" : "EX-DOWNLOAD-CONFLICT-same",
+    "status" : "PASS"
+  },
+  {
+    "actual" : "conflict wait cancelled; subsequent task completed=1",
+    "cases" : "TC-CFL-06,TC-QUE-04",
+    "id" : "EX-CANCEL-CONFLICT",
+    "status" : "PASS"
+  },
+  {
+    "actual" : "state=completed; completed=2; failed=1; destination same.bin is directory",
+    "cases" : "TC-QUE-07,TC-QUE-08",
+    "id" : "EX-PARTIAL-FAILURE",
+    "status" : "PASS"
+  },
+  {
+    "actual" : "skipped=1; skippedRemoteSourcePreserved=false",
+    "cases" : "TC-CLP-04",
+    "id" : "EX-DOWNLOAD-CUT-SKIP",
+    "status" : "FAIL"
+  },
+  {
+    "actual" : "filesCompleted=1; targetEmptyChild=false; sourceEmptyChild=false",
+    "cases" : "TC-CLP-06",
+    "id" : "EX-CUT-EMPTY-CHILD",
+    "status" : "FAIL"
+  },
+  {
+    "actual" : "inputPath has newline; parsedCount=1; parsedPaths=[\"\/tmp\/macmtp-newline\"]",
+    "cases" : "TC-DRG-09",
+    "id" : "EX-NEWLINE-PAYLOAD",
+    "status" : "FAIL"
+  },
+  {
+    "actual" : "pause after actual nonzero byte progress; pausedAtOne=true; completedAfterResume=2",
+    "cases" : "TC-QUE-02",
+    "id" : "EX-PAUSE-RESUME",
+    "status" : "PASS"
+  },
+  {
+    "actual" : "logical disconnect\/reconnect storageId=Optional(65537); physical cable not unplugged",
+    "cases" : "TC-CON-08",
+    "id" : "EX-LOGICAL-RECONNECT",
+    "status" : "PASS"
+  },
+  {
+    "actual" : "supplemental test root removed; original root path set compared",
+    "cases" : "fixture cleanup",
+    "id" : "EX-CLEANUP",
+    "status" : "PASS"
+  }
+]

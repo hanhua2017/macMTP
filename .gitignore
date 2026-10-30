@@ -1,0 +1,82 @@
+# macOS 与编辑器临时文件
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+*.swp
+*.swo
+*~
+
+# SwiftPM / Xcode 本机状态与构建缓存
+.build/
+.swiftpm/
+Package.resolved
+xcuserdata/
+*.xcuserstate
+*.xcworkspace/
+DerivedData/
+
+# 应用、安装包、发布目录（由构建/发布流程提供）
+*.app/
+*.dmg
+*.dmg.sha256
+*.zip
+*.ipa
+*.pkg
+*.dSYM/
+release/
+dist/
+
+# 第三方源码及运行库由 thirdparty/.gitignore 统一排除。
+# LICENSE、LICENSES/ 和依赖清单保留在版本库。
+
+# 本机环境、凭据与签名材料；可提交不含真实值的示例模板
+.env
+.env.*
+!.env.example
+!.env.sample
+!.env.template
+.envrc
+.netrc
+.npmrc
+.pypirc
+credentials.json
+service-account*.json
+*.p12
+*.pfx
+*.mobileprovision
+*.provisionprofile
+*.key
+*.pem
+*.keystore
+*.jks
+
+# IDE、AI 工具与个人工作树
+.vscode/
+.idea/
+*.code-workspace
+.opencode/
+.agents/
+.codex/
+.claude/
+.superpowers/
+.worktrees/
+
+# 原始日志、临时数据与本地备份
+*.log
+*.tmp
+*.bak
+*.orig
+*.rej
+__pycache__/
+*.py[cod]
+.pytest_cache/
+tmp/
+backups/
+
+# 历史回滚快照及执行记录仅供本地复核，不作为开源源码分发。
+/docs/test-reports/**/BASELINE.tar.gz
+/docs/test-reports/**/MODIFIED_FILE.tar.gz
+/docs/test-reports/**/DIFF_FILE.patch
+/docs/test-reports/**/ROLLBACK.sh
+/docs/test-reports/**/VERIFICATION.txt

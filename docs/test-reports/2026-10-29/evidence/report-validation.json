@@ -1,0 +1,37 @@
+{
+  "caseCount": 96,
+  "counts": {
+    "部分验证": 37,
+    "通过": 8,
+    "阻塞": 21,
+    "未执行": 22,
+    "失败": 8
+  },
+  "csvJsonMatch": true,
+  "caseIdsMatchSpecification": true,
+  "localMarkdownLinksValid": true,
+  "baselineHashesUnchanged": true,
+  "readableNonemptyFiles": 30,
+  "preferences": {
+    "appLanguage": {
+      "before": "system",
+      "after": "system",
+      "equal": true
+    },
+    "explorerLayoutMode": {
+      "before": "Dual Pane",
+      "after": "Dual Pane",
+      "equal": true
+    },
+    "hasSeenPrivacyPrompt": {
+      "before": true,
+      "after": true,
+      "equal": true
+    },
+    "sendCrashReports": {
+      "before": false,
+      "after": false,
+      "equal": true
+    }
+  }
+}

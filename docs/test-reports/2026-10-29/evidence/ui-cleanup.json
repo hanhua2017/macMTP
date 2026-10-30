@@ -1,0 +1,11 @@
+{
+  "deleted" : true,
+  "fixture" : "\/macmtp-ui-test-20261029",
+  "otherRootPathsUnchanged" : true,
+  "preDeletionSHA256" : {
+    "one.txt" : "6ab72eeb9e77b07540897e0c8d6d23ec8eef0f8c3a47e1b3f4e93443d9536bed",
+    "two.pdf" : "90c4a574cd6699066e08ec614a847b977c61a5e764d9b0d2b2c4d06583fcf208",
+    "三号 文件.epub" : "5c90556f76c75e8254a9f7be7405c1aa196658ffe28ddc9aa5721461f48497e1"
+  },
+  "rootCountAfter" : 10
+}

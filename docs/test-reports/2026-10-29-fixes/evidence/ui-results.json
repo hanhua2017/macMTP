@@ -1,0 +1,5 @@
+[
+  {"id":"BUG-08-PATH","status":"PASS","actual":"Command-A replaced the complete old path with /path/to/home/Downloads/macmtp-ui-test-20261029/missing-ui; plain Return committed it and displayed source.txt (32 bytes)."},
+  {"id":"BUG-08-FILTER","status":"PASS","actual":"Typed source in filter; Command-A/C/X left empty text; Command-V restored source; source.txt remained. Clicking file row moved AX focus from text field to window; file Copy became enabled."},
+  {"id":"BUG-05-ALERT","status":"PASS","actual":"Copied synthetic source.txt, renamed it outside app, pasted to active MTP pane. Visible alert: Transfer Failed The file “source.txt” couldn’t be opened because there is no such file. Original synthetic file restored afterwards; no MTP write."}
+]

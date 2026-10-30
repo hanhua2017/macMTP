@@ -1,0 +1,35 @@
+--- product/FileTransferService.swift
++++ test-copy/FileTransferService.swift
+@@ -148,28 +148,10 @@
+     
+     
+     public func postTransferNotification(title: String, body: String, isError: Bool = false) {
+-        Task { @MainActor in
+-            do {
+-                let center = UNUserNotificationCenter.current()
+-                let granted = try await center.requestAuthorization(options: [.alert, .sound])
+-                guard granted else { return }
+-                let content = UNMutableNotificationContent()
+-                content.title = title
+-                content.body = body
+-                content.sound = isError ? .default : nil
+-                let request = UNNotificationRequest(
+-                    identifier: "transfer-\(UUID().uuidString)",
+-                    content: content,
+-                    trigger: nil
+-                )
+-                try await center.add(request)
+-            } catch {
+-                ErrorLogger.log(error, message: "Failed to post notification")
+-            }
+-        }
+-    }
+-    
+-    
++        ErrorLogger.debug("TEST_HOST notification suppressed title=\(title) error=\(isError)")
++    }
++
++
+     private func performTransfer(
+         sources: [FileNode],
+         destinationDir: String,

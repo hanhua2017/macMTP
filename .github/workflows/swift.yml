@@ -1,0 +1,33 @@
+name: Swift
+
+on:
+  push:
+    branches: [ "main", "develop" ]
+  pull_request:
+    branches: [ "main", "develop" ]
+
+jobs:
+  build:
+    runs-on: macos-latest
+
+    steps:
+    - name: Checkout MacMTP
+      uses: actions/checkout@v4
+
+    - name: Install build tools
+      run: brew install pkg-config
+
+    - name: Build isolated LibMTP runtime
+      run: bash scripts/build-runtime.sh "$(uname -m)"
+
+    - name: Build project app
+      run: bash scripts/build.sh debug --arch "$(uname -m)"
+
+    - name: Build Swift package
+      run: swift build -v
+
+    - name: Build native release
+      run: bash scripts/build.sh release --arch "$(uname -m)"
+
+    - name: Run tests
+      run: swift test

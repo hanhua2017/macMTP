@@ -1,0 +1,5 @@
+# 仅提交依赖清单与说明；源码、归档、运行库、编译结果和备份均不入库。
+/*
+!/.gitignore
+!/README.md
+!/dependencies.tsv

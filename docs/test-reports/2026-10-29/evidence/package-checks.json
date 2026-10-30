@@ -1,0 +1,217 @@
+[
+  {
+    "command": [
+      "plutil",
+      "-lint",
+      "Resources/Info.plist",
+      "Resources/en.lproj/Localizable.strings",
+      "Resources/zh-Hans.lproj/Localizable.strings"
+    ],
+    "exit": 0,
+    "stdout": "Resources/Info.plist: OK\nResources/en.lproj/Localizable.strings: OK\nResources/zh-Hans.lproj/Localizable.strings: OK\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "codesign",
+      "--verify",
+      "--deep",
+      "--strict",
+      "--verbose=2",
+      "macMTP.app"
+    ],
+    "exit": 0,
+    "stdout": "",
+    "stderr": "--prepared:/path/to/MacMTP/macMTP.app/Contents/MacOS/libusb.dylib\n--validated:/path/to/MacMTP/macMTP.app/Contents/MacOS/libusb.dylib\n--prepared:/path/to/MacMTP/macMTP.app/Contents/MacOS/libintl.8.dylib\n--validated:/path/to/MacMTP/macMTP.app/Contents/MacOS/libintl.8.dylib\n--prepared:/path/to/MacMTP/macMTP.app/Contents/MacOS/libgpg-error.0.dylib\n--validated:/path/to/MacMTP/macMTP.app/Contents/MacOS/libgpg-error.0.dylib\n--prepared:/path/to/MacMTP/macMTP.app/Contents/MacOS/libmtp.9.dylib\n--validated:/path/to/MacMTP/macMTP.app/Contents/MacOS/libmtp.9.dylib\n--prepared:/path/to/MacMTP/macMTP.app/Contents/MacOS/libgcrypt.20.dylib\n--validated:/path/to/MacMTP/macMTP.app/Contents/MacOS/libgcrypt.20.dylib\nmacMTP.app: valid on disk\nmacMTP.app: satisfies its Designated Requirement\n"
+  },
+  {
+    "command": [
+      "lipo",
+      "-archs",
+      "macMTP.app/Contents/MacOS/libgcrypt.20.dylib"
+    ],
+    "exit": 0,
+    "stdout": "arm64\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "otool",
+      "-L",
+      "macMTP.app/Contents/MacOS/libgcrypt.20.dylib"
+    ],
+    "exit": 0,
+    "stdout": "macMTP.app/Contents/MacOS/libgcrypt.20.dylib:\n\t@executable_path/libgcrypt.20.dylib (compatibility version 28.0.0, current version 28.2.0)\n\t@executable_path/libgpg-error.0.dylib (compatibility version 42.0.0, current version 42.2.0)\n\t/usr/lib/libSystem.B.dylib (compatibility version 1.0.0, current version 1356.0.0)\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "vtool",
+      "-show-build",
+      "macMTP.app/Contents/MacOS/libgcrypt.20.dylib"
+    ],
+    "exit": 0,
+    "stdout": "macMTP.app/Contents/MacOS/libgcrypt.20.dylib:\nLoad command 9\n      cmd LC_BUILD_VERSION\n  cmdsize 32\n platform MACOS\n    minos 26.0\n      sdk 26.4\n   ntools 1\n     tool LD\n  version 1266.8\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "lipo",
+      "-archs",
+      "macMTP.app/Contents/MacOS/libgpg-error.0.dylib"
+    ],
+    "exit": 0,
+    "stdout": "arm64\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "otool",
+      "-L",
+      "macMTP.app/Contents/MacOS/libgpg-error.0.dylib"
+    ],
+    "exit": 0,
+    "stdout": "macMTP.app/Contents/MacOS/libgpg-error.0.dylib:\n\t@executable_path/libgpg-error.0.dylib (compatibility version 43.0.0, current version 43.1.0)\n\t@executable_path/libintl.8.dylib (compatibility version 13.0.0, current version 13.6.0)\n\t/System/Library/Frameworks/CoreFoundation.framework/Versions/A/CoreFoundation (compatibility version 150.0.0, current version 4424.1.255)\n\t/System/Library/Frameworks/CoreServices.framework/Versions/A/CoreServices (compatibility version 1.0.0, current version 1226.0.0)\n\t/usr/lib/libSystem.B.dylib (compatibility version 1.0.0, current version 1356.0.0)\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "vtool",
+      "-show-build",
+      "macMTP.app/Contents/MacOS/libgpg-error.0.dylib"
+    ],
+    "exit": 0,
+    "stdout": "macMTP.app/Contents/MacOS/libgpg-error.0.dylib:\nLoad command 10\n      cmd LC_BUILD_VERSION\n  cmdsize 32\n platform MACOS\n    minos 26.0\n      sdk 26.4\n   ntools 1\n     tool LD\n  version 1266.8\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "lipo",
+      "-archs",
+      "macMTP.app/Contents/MacOS/libintl.8.dylib"
+    ],
+    "exit": 0,
+    "stdout": "arm64\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "otool",
+      "-L",
+      "macMTP.app/Contents/MacOS/libintl.8.dylib"
+    ],
+    "exit": 0,
+    "stdout": "macMTP.app/Contents/MacOS/libintl.8.dylib:\n\t@executable_path/libintl.8.dylib (compatibility version 13.0.0, current version 13.6.0)\n\t/usr/lib/libiconv.2.dylib (compatibility version 7.0.0, current version 7.0.0)\n\t/System/Library/Frameworks/CoreFoundation.framework/Versions/A/CoreFoundation (compatibility version 150.0.0, current version 4424.1.255)\n\t/System/Library/Frameworks/CoreServices.framework/Versions/A/CoreServices (compatibility version 1.0.0, current version 1226.0.0)\n\t/usr/lib/libSystem.B.dylib (compatibility version 1.0.0, current version 1356.0.0)\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "vtool",
+      "-show-build",
+      "macMTP.app/Contents/MacOS/libintl.8.dylib"
+    ],
+    "exit": 0,
+    "stdout": "macMTP.app/Contents/MacOS/libintl.8.dylib:\nLoad command 10\n      cmd LC_BUILD_VERSION\n  cmdsize 32\n platform MACOS\n    minos 26.0\n      sdk 26.4\n   ntools 1\n     tool LD\n  version 1266.8\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "lipo",
+      "-archs",
+      "macMTP.app/Contents/MacOS/libmtp.9.dylib"
+    ],
+    "exit": 0,
+    "stdout": "arm64\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "otool",
+      "-L",
+      "macMTP.app/Contents/MacOS/libmtp.9.dylib"
+    ],
+    "exit": 0,
+    "stdout": "macMTP.app/Contents/MacOS/libmtp.9.dylib:\n\t@executable_path/libmtp.9.dylib (compatibility version 14.0.0, current version 14.0.0)\n\t/usr/lib/libiconv.2.dylib (compatibility version 7.0.0, current version 7.0.0)\n\t@executable_path/libusb.dylib (compatibility version 7.0.0, current version 7.0.0)\n\t@executable_path/libgcrypt.20.dylib (compatibility version 28.0.0, current version 28.2.0)\n\t@executable_path/libgpg-error.0.dylib (compatibility version 43.0.0, current version 43.1.0)\n\t/usr/lib/libSystem.B.dylib (compatibility version 1.0.0, current version 1356.0.0)\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "vtool",
+      "-show-build",
+      "macMTP.app/Contents/MacOS/libmtp.9.dylib"
+    ],
+    "exit": 0,
+    "stdout": "macMTP.app/Contents/MacOS/libmtp.9.dylib:\nLoad command 10\n      cmd LC_BUILD_VERSION\n  cmdsize 32\n platform MACOS\n    minos 26.0\n      sdk 26.5\n   ntools 1\n     tool LD\n  version 1267.0\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "lipo",
+      "-archs",
+      "macMTP.app/Contents/MacOS/libusb.dylib"
+    ],
+    "exit": 0,
+    "stdout": "arm64\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "otool",
+      "-L",
+      "macMTP.app/Contents/MacOS/libusb.dylib"
+    ],
+    "exit": 0,
+    "stdout": "macMTP.app/Contents/MacOS/libusb.dylib:\n\t@executable_path/libusb.dylib (compatibility version 7.0.0, current version 7.0.0)\n\t/usr/lib/libobjc.A.dylib (compatibility version 1.0.0, current version 228.0.0)\n\t/System/Library/Frameworks/IOKit.framework/Versions/A/IOKit (compatibility version 1.0.0, current version 275.0.0)\n\t/System/Library/Frameworks/CoreFoundation.framework/Versions/A/CoreFoundation (compatibility version 150.0.0, current version 4424.1.255)\n\t/System/Library/Frameworks/Security.framework/Versions/A/Security (compatibility version 1.0.0, current version 61901.101.4)\n\t/usr/lib/libSystem.B.dylib (compatibility version 1.0.0, current version 1356.0.0)\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "vtool",
+      "-show-build",
+      "macMTP.app/Contents/MacOS/libusb.dylib"
+    ],
+    "exit": 0,
+    "stdout": "macMTP.app/Contents/MacOS/libusb.dylib:\nLoad command 10\n      cmd LC_BUILD_VERSION\n  cmdsize 32\n platform MACOS\n    minos 26.0\n      sdk 26.4\n   ntools 1\n     tool LD\n  version 1266.8\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "lipo",
+      "-archs",
+      "macMTP.app/Contents/MacOS/macMTP"
+    ],
+    "exit": 0,
+    "stdout": "arm64\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "otool",
+      "-L",
+      "macMTP.app/Contents/MacOS/macMTP"
+    ],
+    "exit": 0,
+    "stdout": "macMTP.app/Contents/MacOS/macMTP:\n\t/System/Library/Frameworks/CoreFoundation.framework/Versions/A/CoreFoundation (compatibility version 150.0.0, current version 5026.5.4)\n\t/System/Library/Frameworks/Security.framework/Versions/A/Security (compatibility version 1.0.0, current version 61901.120.67)\n\t/System/Library/Frameworks/IOKit.framework/Versions/A/IOKit (compatibility version 1.0.0, current version 275.0.0)\n\t@executable_path/libusb.dylib (compatibility version 7.0.0, current version 7.0.0)\n\t@executable_path/libmtp.9.dylib (compatibility version 14.0.0, current version 14.0.0)\n\t@executable_path/libgcrypt.20.dylib (compatibility version 28.0.0, current version 28.2.0)\n\t@executable_path/libgpg-error.0.dylib (compatibility version 43.0.0, current version 43.1.0)\n\t/usr/lib/libiconv.2.dylib (compatibility version 7.0.0, current version 7.0.0)\n\t/usr/lib/libSystem.B.dylib (compatibility version 1.0.0, current version 1356.0.0)\n\t/System/Library/Frameworks/AppKit.framework/Versions/C/AppKit (compatibility version 45.0.0, current version 2685.60.104)\n\t/System/Library/Frameworks/Combine.framework/Versions/A/Combine (compatibility version 1.0.0, current version 3023.0.0)\n\t/System/Library/Frameworks/CoreGraphics.framework/Versions/A/CoreGraphics (compatibility version 64.0.0, current version 1965.5.1)\n\t/System/Library/Frameworks/Foundation.framework/Versions/C/Foundation (compatibility version 300.0.0, current version 5026.5.4)\n\t/System/Library/Frameworks/ImageIO.framework/Versions/A/ImageIO (compatibility version 1.0.0, current version 1.0.0)\n\t/System/Library/Frameworks/PDFKit.framework/Versions/A/PDFKit (compatibility version 1.0.0, current version 1451.5.3)\n\t/System/Library/Frameworks/SwiftUI.framework/Versions/A/SwiftUI (compatibility version 1.0.0, current version 7.5.3)\n\t/System/Library/Frameworks/Symbols.framework/Versions/A/Symbols (compatibility version 1.0.0, current version 190.4.0)\n\t/System/Library/Frameworks/UserNotifications.framework/Versions/A/UserNotifications (compatibility version 1.0.0, current version 1.0.0)\n\t/usr/lib/libobjc.A.dylib (compatibility version 1.0.0, current version 228.0.0)\n\t/usr/lib/swift/libswiftCore.dylib (compatibility version 0.0.0, current version 0.0.0)\n\t/usr/lib/swift/libswiftCoreFoundation.dylib (compatibility version 1.0.0, current version 120.100.0)\n\t/usr/lib/swift/libswiftCoreImage.dylib (compatibility version 1.0.0, current version 2.2.0, weak)\n\t/usr/lib/swift/libswiftDarwin.dylib (compatibility version 1.0.0, current version 377.120.8, weak)\n\t/usr/lib/swift/libswiftDispatch.dylib (compatibility version 1.0.0, current version 1542.100.32)\n\t/usr/lib/swift/libswiftIOKit.dylib (compatibility version 1.0.0, current version 1.0.0, weak)\n\t/usr/lib/swift/libswiftMetal.dylib (compatibility version 1.0.0, current version 373.2.0, weak)\n\t/usr/lib/swift/libswiftOSLog.dylib (compatibility version 1.0.0, current version 10.0.0, weak)\n\t/usr/lib/swift/libswiftObjectiveC.dylib (compatibility version 1.0.0, current version 951.7.0)\n\t/usr/lib/swift/libswiftQuartzCore.dylib (compatibility version 1.0.0, current version 5.0.0, weak)\n\t/usr/lib/swift/libswiftSpatial.dylib (compatibility version 1.0.0, current version 1.0.0, weak)\n\t/usr/lib/swift/libswiftUniformTypeIdentifiers.dylib (compatibility version 1.0.0, current version 877.5.1)\n\t/usr/lib/swift/libswiftXPC.dylib (compatibility version 1.0.0, current version 128.120.2, weak)\n\t/usr/lib/swift/libswift_Concurrency.dylib (compatibility version 0.0.0, current version 0.0.0)\n\t/usr/lib/swift/libswiftos.dylib (compatibility version 1.0.0, current version 1082.0.0, weak)\n\t/usr/lib/swift/libswiftsimd.dylib (compatibility version 1.0.0, current version 23.0.0, weak)\n\t/usr/lib/swift/libswiftCoreGraphics.dylib (compatibility version 1.0.0, current version 1.0.0)\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "vtool",
+      "-show-build",
+      "macMTP.app/Contents/MacOS/macMTP"
+    ],
+    "exit": 0,
+    "stdout": "macMTP.app/Contents/MacOS/macMTP:\nLoad command 11\n      cmd LC_BUILD_VERSION\n  cmdsize 32\n platform MACOS\n    minos 14.0\n      sdk 26.5\n   ntools 1\n     tool LD\n  version 1267.0\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "hdiutil",
+      "verify",
+      "release/macMTP-1.0.6-mac-arm64.dmg"
+    ],
+    "exit": 0,
+    "stdout": "Checksumming Protective Master Boot Record (MBR : 0)…\nProtective Master Boot Record (MBR :: verified   CRC32 $C73D6EB8\nChecksumming GPT Header (Primary GPT Header : 1)…\n GPT Header (Primary GPT Header : 1): verified   CRC32 $86DF2865\nChecksumming GPT Partition Data (Primary GPT Table : 2)…\nGPT Partition Data (Primary GPT Tabl: verified   CRC32 $54341D0C\nChecksumming  (Apple_Free : 3)…\n                    (Apple_Free : 3): verified   CRC32 $00000000\nChecksumming disk image (Apple_APFS : 4)…\n         disk image (Apple_APFS : 4): verified   CRC32 $23DA722A\nChecksumming  (Apple_Free : 5)…\n                    (Apple_Free : 5): verified   CRC32 $00000000\nChecksumming GPT Partition Data (Backup GPT Table : 6)…\nGPT Partition Data (Backup GPT Table: verified   CRC32 $54341D0C\nChecksumming GPT Header (Backup GPT Header : 7)…\n  GPT Header (Backup GPT Header : 7): verified   CRC32 $9062FD30\nverified   CRC32 $2EA8BDCA\n",
+    "stderr": "hdiutil: verify: checksum of \"release/macMTP-1.0.6-mac-arm64.dmg\" is VALID\n"
+  }
+]

@@ -1,0 +1,122 @@
+[
+  {
+    "actual" : "device=Optional(\"iFlytek AiNote Gallery\"); storages=1; storageId=65537; capabilities=MTPDeviceCapabilities(getPartialObject: true, sendPartialObject: true, editObjects: true, moveObject: true, copyObject: true)",
+    "cases" : "TC-CON-02,TC-CON-11",
+    "id" : "HW-CONNECT",
+    "status" : "PASS"
+  },
+  {
+    "actual" : "one.txt:6ab72eeb9e77b07540897e0c8d6d23ec8eef0f8c3a47e1b3f4e93443d9536bed=6ab72eeb9e77b07540897e0c8d6d23ec8eef0f8c3a47e1b3f4e93443d9536bed; two.pdf:90c4a574cd6699066e08ec614a847b977c61a5e764d9b0d2b2c4d06583fcf208=90c4a574cd6699066e08ec614a847b977c61a5e764d9b0d2b2c4d06583fcf208; 三号 文件.epub:5c90556f76c75e8254a9f7be7405c1aa196658ffe28ddc9aa5721461f48497e1=5c90556f76c75e8254a9f7be7405c1aa196658ffe28ddc9aa5721461f48497e1",
+    "cases" : "TC-TRN-01,TC-TRN-09",
+    "id" : "HW-ROUNDTRIP",
+    "status" : "PASS"
+  },
+  {
+    "actual" : "renameNames=[\"改名 测试.txt\"]; recursivelyDeleted=true",
+    "cases" : "TC-FIL-01,TC-FIL-03,TC-FIL-06",
+    "id" : "HW-MANAGEMENT",
+    "status" : "PASS"
+  },
+  {
+    "actual" : "copySourceAfterMove=0; moved=[\"one.txt\"]; hash=6ab72eeb9e77b07540897e0c8d6d23ec8eef0f8c3a47e1b3f4e93443d9536bed",
+    "cases" : "TC-CLP-08,TC-CLP-09",
+    "id" : "HW-COPY-MOVE",
+    "status" : "PASS"
+  },
+  {
+    "actual" : "completed=3; failed=0; all 3 SHA256 compared",
+    "cases" : "TC-TRN-01,TC-TRN-02",
+    "id" : "HW-SERVICE-BATCH",
+    "status" : "PASS"
+  },
+  {
+    "actual" : "completed=1; batchProgress=0.0; returnedSize=0",
+    "cases" : "TC-TRN-08",
+    "id" : "HW-ZERO",
+    "status" : "PASS"
+  },
+  {
+    "actual" : "upload=3; download=3; repeated basename and hidden file SHA256 compared",
+    "cases" : "TC-TRN-06,TC-TRN-12",
+    "id" : "HW-TREE",
+    "status" : "PASS"
+  },
+  {
+    "actual" : "queueItems=0; targetEmptyDirExists=false",
+    "cases" : "TC-TRN-07",
+    "id" : "HW-EMPTY-DIR",
+    "status" : "FAIL"
+  },
+  {
+    "actual" : "completed=2; skipped=0; sameHash=775653072817f6d0c39da9f29b7747925c12b57a0dd5414463423915c3f07555; differentHash=74b034dd17aef8b7203d13aab06b6dc6c90671c89d1ecf0e747b59713f3efab7",
+    "cases" : "TC-CFL-02,TC-CFL-03,TC-CFL-04,TC-CFL-05",
+    "id" : "HW-CONFLICT-overwrite",
+    "status" : "PASS"
+  },
+  {
+    "actual" : "completed=0; skipped=2; sameHash=08b09a6f0aa2e11f3218172fba1994cbfb59a4992f4566bdc03ced59dfc02292; differentHash=cba06b5736faf67e54b07b561eae94395e774c517a7d910a54369e1263ccfbd4",
+    "cases" : "TC-CFL-02,TC-CFL-03,TC-CFL-04,TC-CFL-05",
+    "id" : "HW-CONFLICT-skip",
+    "status" : "PASS"
+  },
+  {
+    "actual" : "completed=1; skipped=1; sameHash=08b09a6f0aa2e11f3218172fba1994cbfb59a4992f4566bdc03ced59dfc02292; differentHash=74b034dd17aef8b7203d13aab06b6dc6c90671c89d1ecf0e747b59713f3efab7",
+    "cases" : "TC-CFL-02,TC-CFL-03,TC-CFL-04,TC-CFL-05",
+    "id" : "HW-CONFLICT-different",
+    "status" : "PASS"
+  },
+  {
+    "actual" : "completed=1; skipped=1; sameHash=08b09a6f0aa2e11f3218172fba1994cbfb59a4992f4566bdc03ced59dfc02292; differentHash=74b034dd17aef8b7203d13aab06b6dc6c90671c89d1ecf0e747b59713f3efab7",
+    "cases" : "TC-CFL-02,TC-CFL-03,TC-CFL-04,TC-CFL-05",
+    "id" : "HW-CONFLICT-same",
+    "status" : "PASS"
+  },
+  {
+    "actual" : "status=[\"Skipped\"]; skippedSourcePreserved=false",
+    "cases" : "TC-CLP-04",
+    "id" : "HW-CUT-SKIP",
+    "status" : "FAIL"
+  },
+  {
+    "actual" : "uploadCompleted=1; downloadCompleted=1; localSourceRemoved=true; remoteSourceRemoved=true",
+    "cases" : "TC-CLP-03",
+    "id" : "HW-CUT-SUCCESS",
+    "status" : "PASS"
+  },
+  {
+    "actual" : "uploaded=100; downloaded=100; SHA256Matched=true; elapsedSeconds=75.59334599971771",
+    "cases" : "TC-TRN-10",
+    "id" : "HW-100-FILES",
+    "status" : "PASS"
+  },
+  {
+    "actual" : "activeBatch=nil; failed=0; source does not exist, error expected",
+    "cases" : "TC-QUE-07",
+    "id" : "HW-INVALID-SOURCE",
+    "status" : "FAIL"
+  },
+  {
+    "actual" : "existingBatchStateAfterRejectedSecondRequest=cancelled; controlled pre-existing batch, no background transfer",
+    "cases" : "TC-QUE-05",
+    "id" : "HW-BUSY",
+    "status" : "FAIL"
+  },
+  {
+    "actual" : "error: The operation couldn’t be completed. (LiveTestTimeout error 1.)",
+    "cases" : "TC-QUE-02",
+    "id" : "HW-PAUSE-RESUME",
+    "status" : "FAIL"
+  },
+  {
+    "actual" : "state=cancelled; destinationFileCount=1; bothSourcesPreserved=true",
+    "cases" : "TC-QUE-03,TC-CLP-05",
+    "id" : "HW-CANCEL",
+    "status" : "PASS"
+  },
+  {
+    "actual" : "testRootDeleted=true; originalRootPathSetUnchanged=true",
+    "cases" : "fixture cleanup",
+    "id" : "HW-CLEANUP",
+    "status" : "PASS"
+  }
+]

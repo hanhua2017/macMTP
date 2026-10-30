@@ -1,0 +1,5 @@
+# 上游许可证及历史补丁逐字节保留，不按自有代码的空白规则改写。
+LICENSES/** -whitespace
+docs/test-reports/**/*.patch -whitespace
+# 测试结果原始 CSV 的换行不自动归一化。
+docs/test-reports/**/*.csv -text whitespace=cr-at-eol

@@ -1,0 +1,86 @@
+{
+  "Package.swift": {
+    "before": "8874431cd39abdc63c68fd8db6d6915d9284c6759d0262af85b708e635c1b7c9",
+    "after": "60c773d707ccd4bb52651a10025ffdca797f5ac23b0c4c47bb538647ce998b39"
+  },
+  "README.md": {
+    "before": "ac6ee0dbe260c399a7b09de77e761733254c802a8c71533a96f74d879f646513",
+    "after": "5632dbdb5f9707c8c64924b6eb46f5b518e12757ff082a8eaf5be8872c9c5704"
+  },
+  "README.zh-CN.md": {
+    "before": "8a5e9d62db07f44bb40fed9a32e2ea9bb9c6e194bb3776ce1bd3760404dedb5b",
+    "after": "f84e1e5f04f222b4416d9667b7c420eeb4d4f3d087c856897c6286bc92ad5498"
+  },
+  "Resources/en.lproj/Localizable.strings": {
+    "before": "f67d41523cbaee8955d81785d217944a398b3730395a35c0918deca90620e916",
+    "after": "4f63e3d743690080a06a225826b0d938c859e3e9fe089b40db08acfe4816663e"
+  },
+  "Resources/zh-Hans.lproj/Localizable.strings": {
+    "before": "a3a07bdce951c085312a588cdd126d52266cd4b04c436c1e388c8c5f98103d3a",
+    "after": "60ad464b6a704ffd569673a0735004fffda8b644e8e63973f1862693e7085b85"
+  },
+  "Sources/macmtp/App/main.swift": {
+    "before": "2f73a716685eda5c4c4be09f21a0a57844e7f1edfaee216ba2e0e9a34f3a4038",
+    "after": "23f6d8645d075a64efb1130ba858016d13db99f7ffd9aba3438c4ea8e7a60a01"
+  },
+  "Sources/macmtp/Models/TransferItem.swift": {
+    "before": "23a85f6c57823e814606f36d542746dc6f6abbe271d36cab64b98e6addced2b9",
+    "after": "1f0ce5aa41f0950aeb84d46b5b61541299a53674c33e86b2d482ddc1cf722e23"
+  },
+  "Sources/macmtp/Services/FileTransferService.swift": {
+    "before": "74ca69b9f57604e1e5088b991b7e13dbfab932cd1406bcb6b3f6ecd9543c379c",
+    "after": "a5cd17dd0b4bd7444b3f5d8d0892a80bcac215becde5b0cec35df33d504e01e8"
+  },
+  "Sources/macmtp/Services/MTPUploadVerification.swift": {
+    "before": null,
+    "after": "b39b7d58f91342acee6e2e4deb0ca8d20f5a82a014513f44a96a807869731fad"
+  },
+  "Sources/macmtp/Utilities/ExplorerKeyboardRouting.swift": {
+    "before": null,
+    "after": "9149af47b3382c33eb0036004d57cfa49dc3f9c7ea51ec379872a367c3ab0126"
+  },
+  "Sources/macmtp/Views/ContentView.swift": {
+    "before": "b0c152ce6209cf5b1ee09dd3ade7fd42db157682504bbe58710f7b0d9ee218ad",
+    "after": "6df809c37d0f68d9ee67e16c144a89a3e464d533668539a41806b4377f6f03a2"
+  },
+  "Sources/macmtp/Views/FileExplorerPane.swift": {
+    "before": "0f95996ce8648ae397df72ae333646e8b7338ec247dd933de25cfef0d009c0c0",
+    "after": "e60c5d196ee9cf3071c13ddfb4144675a496b3658f8a206a4e380c55d87ef93e"
+  },
+  "Sources/macmtp/Views/TransferProgressView.swift": {
+    "before": "fb49e9296fb2c0737d3515d73149672fe46e6df84dbb2a94ebce8892bf9d94b3",
+    "after": "8277b0ba9a4bc5c8dba11c45c0d140fec08caa43a34c0017d8f6d3ec3882831c"
+  },
+  "Tests/macmtpTests/ExplorerKeyboardRoutingTests.swift": {
+    "before": null,
+    "after": "983c081e3eb7757b0a9706d55323f137f319d30d8e206095ddd35778b16c0f8a"
+  },
+  "Tests/macmtpTests/FileExplorerPaneDropTests.swift": {
+    "before": "740006685ffe769b383b88672c256d0d0e973c9f07505a46ef35ca53793f7afc",
+    "after": "dee81d40b3e953c79f39e38f42ee0dbfacd679e9e4ce77d8c7cb1f349a46f46d"
+  },
+  "Tests/macmtpTests/FileTransferDeviceRegressionTests.swift": {
+    "before": null,
+    "after": "784cd6fcd5b3a3414c61ebc52b25273eea4df9c96c0c6744c4e3b4d1007f6c8b"
+  },
+  "Tests/macmtpTests/FileTransferRegressionTests.swift": {
+    "before": null,
+    "after": "01e6654a06b1eeec99341416a2e60d3e7fa88e484a78a2a22090af5f8b51b0d1"
+  },
+  "Tests/macmtpTests/TransferFixtureBridge.swift": {
+    "before": null,
+    "after": "429a656694b099aa61e84717af5fd63e5bf8b65b2ddea066c935bf30837d9ef7"
+  },
+  "scripts/build-runtime.sh": {
+    "before": null,
+    "after": "3c4b31fc644da97dc73f0c1ceccf0e25c8ea039ce1cbb0f79de00bac8c1fe704"
+  },
+  "scripts/build.sh": {
+    "before": "e958f08ddcfb6233336298bc4b6d9d2243065a6d1302485c3cdccce51b1524e3",
+    "after": "0404733afd66df02f45fc8817ba53bb9ce78c84c8de31bbc64c1c06e31ef3355"
+  },
+  "scripts/package.sh": {
+    "before": "cc8ffb9f2fdce49f9bcc1330743f69e35773aa096199f732f0e2872a4ff436a5",
+    "after": "840678b4ff969b68dc8f194675060c1de963d04ffdfacbed9ba691d91af1c63e"
+  }
+}

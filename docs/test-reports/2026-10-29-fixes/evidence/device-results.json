@@ -1,0 +1,57 @@
+[
+  {
+    "actual" : "3 uploaded and read back; all SHA-256 matched=true",
+    "id" : "ROUNDTRIP",
+    "status" : "PASS"
+  },
+  {
+    "actual" : "skipped=1; skipped source preserved; fresh source removed; old target hash checked",
+    "id" : "BUG-01-UPLOAD",
+    "status" : "PASS"
+  },
+  {
+    "actual" : "completed=1; skipped remote source preserved=true; completed source removed=true",
+    "id" : "BUG-01-DOWNLOAD",
+    "status" : "PASS"
+  },
+  {
+    "actual" : "empty nested directory exists=true; queue entries=2",
+    "id" : "BUG-02-UPLOAD",
+    "status" : "PASS"
+  },
+  {
+    "actual" : "nested empty directory returned=true; progress=1.0",
+    "id" : "BUG-02-DOWNLOAD",
+    "status" : "PASS"
+  },
+  {
+    "actual" : "target empty-child=true; source tree removed only after all entries complete",
+    "id" : "BUG-03-UPLOAD",
+    "status" : "PASS"
+  },
+  {
+    "actual" : "downloaded tree retains empty child; remote source removed=true",
+    "id" : "BUG-03-DOWNLOAD",
+    "status" : "PASS"
+  },
+  {
+    "actual" : "real in-flight 32 MiB cut A completed with matching SHA-256; B rejected; A cut metadata retained",
+    "id" : "BUG-04",
+    "status" : "PASS"
+  },
+  {
+    "actual" : "missing local source produces visible error property; no batch\/write",
+    "id" : "BUG-05",
+    "status" : "PASS"
+  },
+  {
+    "actual" : "payload intact; device rejected name; visible errors=[\"File transfer failed: PTP Layer error 2002: LIBMTP_Send_File_From_File_Descriptor(): Could not send object.; Error 2002: PTP General Error\"]; destination names=[]; cut source preserved=true",
+    "id" : "BUG-06",
+    "status" : "PASS"
+  },
+  {
+    "actual" : "fixture removed; original root path set unchanged; count=10",
+    "id" : "CLEANUP",
+    "status" : "PASS"
+  }
+]
